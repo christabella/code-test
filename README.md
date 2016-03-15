@@ -41,7 +41,7 @@ To run the HTTP server, cd into root directory and run `./httpserver`.
 2. Map request JSON body to relevant sections of the Data struct
 3. Print the struct at trace level for each stage of it's construction
 4. Also print the struct at info level when it is complete (i.e. form submit button has been clicked)
-5. Use go routines where appropriate
+5. Use go routines and channel where appropriate
 
 ### Go Struct
 ```

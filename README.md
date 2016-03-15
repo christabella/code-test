@@ -2,32 +2,32 @@ Ravelin Code Test
 =================
 
 ## Summary
-We need an http server that will accept any post request (json) from muliple clients' websites. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
+An http server that will accept any **post request** (json) from **muliple clients' websites**. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
 
-For the js part of the test please feel free to use any libraries that may help you **but do not use any non standard library packages for the Go service**.
 
 ## Frontend (JS)
-Include javascript into the index.html (supplied) that captures and posts data every time one of the below events happens; this means you will be posting multiple times per visitor. Assume only 1 resize occurs.
+To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
+(To run an additional sample client website, cd into `sample2` and run `./clientserver` from there as well.
 
-  - if the screen resizes, the before and after dimensions
+`Main.js` under `sample_client_website/scripts` sends POST requests with JSON body if:
+  - screen resizes
   - copy & paste (for each field)
-  - time taken from the 1st character typed to clicking the submit button
+  - form is submitted
 
 ### Example JSON Requests
 ```
 {
   "eventType": "copyAndPaste",
-  "websiteUrl": "https://ravelin.com",
-  "sessionId": "123123-123123-123123123",
+  "sessionId": "http://localhost:3000",
   "pasted": true,
   "formId": "inputCardNumber"
 }
 
 {
   "eventType": "timeTaken",
-  "websiteUrl": "https://ravelin.com",
+  "websiteUrl": "http://localhost:3000",
   "sessionId": "123123-123123-123123123",
-  "time": 72, // seconds
+  "time": 72.0, // seconds
 }
 
 ...
@@ -35,12 +35,13 @@ Include javascript into the index.html (supplied) that captures and posts data e
 ```
 
 ## Backend (Go)
-1. Build a go binary with an http server
-2. Accept post requests (json format)
-3. Map the json requests to relevant sections of the data struct
-4. Print the struct at trace level for each stage of it's construction. 
-5. Also print the struct at info level when it is complete (i.e. form submit button has been clicked)
-6. Use go routines and channel where appropriate
+To run the HTTP server, cd into root directory and run `./httpserver`.
+
+1. Accept post requests
+2. Map request JSON body to relevant sections of the Data struct
+3. Print the struct at trace level for each stage of it's construction
+4. Also print the struct at info level when it is complete (i.e. form submit button has been clicked)
+5. Use go routines where appropriate
 
 ### Go Struct
 ```

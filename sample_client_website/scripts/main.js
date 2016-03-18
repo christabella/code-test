@@ -106,7 +106,7 @@ $(".form").submit(function(event) {
 
 });
 
-function updateTimer()  
+function updateTimer() 
 {  
     time += 100;  
     elapsed = Math.floor(time / 100) / 10;  

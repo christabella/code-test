@@ -4,9 +4,13 @@ Ravelin Code Test
 ## Summary
 An http server that will accept any **post request** (json) from **muliple clients' websites**. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
 
+To run the HTTP server, cd into root directory and run `./httpserver`.
+
+To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
+
+A Data struct (defined below) is created for each session started from a client website, and the Data struct is completed upon form submission. A randomly-generated session ID is stored in a cookie on the client's browser for each client. All Data structs will be stored in a hashmap, will the session ID as the key. 
 
 ## Frontend (JS)
-To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
 (To run an additional sample client website, cd into `sample2` and run `./clientserver` from there as well.
 
 `Main.js` under `sample_client_website/scripts` sends POST requests with JSON body if:
@@ -35,8 +39,6 @@ To serve a sample client website, cd into `sample_client_website` and run `./cli
 ```
 
 ## Backend (Go)
-To run the HTTP server, cd into root directory and run `./httpserver`.
-
 1. Accept post requests
 2. Map request JSON body to relevant sections of the Data struct
 3. Print the struct at trace level for each stage of it's construction

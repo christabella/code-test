@@ -21,7 +21,7 @@ type Dimension struct {
     Height string
 }
 
-// hashmap of all structs
+// hashmap keeping track of all Data structs
 var dm = make(map[string]*Data) // map[sessionId]*Data
 
 func main() {
@@ -31,13 +31,7 @@ func main() {
      */
     http.HandleFunc("/", requestHandler) // add requestHandler to DefaultServeMux
     fmt.Println("Running HTTP server on localhost:8080")
-    http.ListenAndServe(":8080", nil) // handler is DefaultServeMux
-}
-
-
-
-type test_struct struct {
-    Test string
+    http.ListenAndServe(":8080", nil) // handler is nil, i.e. DefaultServeMux
 }
 
 func requestHandler(rw http.ResponseWriter, req *http.Request) {

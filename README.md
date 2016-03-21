@@ -2,7 +2,7 @@ Ravelin Code Test
 =================
 
 ## Summary
-An http server that will accept any **post request** (json) from **muliple clients' websites**. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
+An http server that accepts **POST requests** (JSON) from **muliple clients' websites** in parallel. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
 
 To run the HTTP server, cd into root directory and run `./httpserver`.
 

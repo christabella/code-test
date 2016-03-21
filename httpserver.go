@@ -81,21 +81,27 @@ func requestHandler(rw http.ResponseWriter, req *http.Request) {
             hb :=reqb["heightBefore"].(string)
             wa :=reqb["widthAfter"].(string)
             ha :=reqb["heightAfter"].(string)
+
             dm[sid].resizeFrom = Dimension{wb, hb}
             dm[sid].resizeTo = Dimension{wa, ha}
+
             log.Printf("Data #%s Updated\n\t\t    >>> resizeFrom:%v\n\t\t    >>> resizeTo:%v", 
                 sid, dm[sid].resizeFrom, dm[sid].resizeTo)
 
         case "copyAndPaste": 
             fid := reqb["formId"].(string)
             pasted := reqb["pasted"].(bool)
+
             dm[sid].copyAndPaste[fid] = pasted
+
             log.Printf("Data #%s Updated\n\t\t    >>> copyAndPaste:map[%s:%t]", 
                 sid, fid, pasted)
 
         case "timeTaken":
             t := reqb["time"].(float64)
+
             dm[sid].formCompletionTime = t
+            
             log.Printf("****** DATA #%s COMPLETE ******\n%+v\n\n", 
                 sid, *dm[sid])
     }

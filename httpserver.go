@@ -13,7 +13,7 @@ type Data struct {
     resizeFrom         Dimension
     resizeTo           Dimension
     copyAndPaste       map[string]bool // map[fieldId]true
-    formCompletionTime float64 // Seconds
+    formCompletionTime float64 // seconds up to 1 decimal place
 }
 
 type Dimension struct {
@@ -21,7 +21,7 @@ type Dimension struct {
     Height string
 }
 
-// hashmap keeping track of all Data structs
+// Hashmap keeping track of all Data structs
 var dm = make(map[string]*Data) // map[sessionId]*Data
 
 func main() {
@@ -35,6 +35,7 @@ func main() {
 }
 
 func requestHandler(rw http.ResponseWriter, req *http.Request) {
+    // Enable cross-domain requests
     rw.Header().Set("Access-Control-Allow-Origin", "*")
     rw.Header().Set("Access-Control-Allow-Headers", "Content-Type")
     

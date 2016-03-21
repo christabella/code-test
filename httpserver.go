@@ -16,6 +16,13 @@ type Data struct {
     formCompletionTime float64 // seconds up to 1 decimal place
 }
 
+func NewData(sid string, wurl string) Data {
+    return Data{
+        sessionId: sid,
+        websiteUrl: wurl,
+        copyAndPaste: make(map[string]bool)}
+}
+
 type Dimension struct {
     Width  string
     Height string
@@ -63,11 +70,8 @@ func requestHandler(rw http.ResponseWriter, req *http.Request) {
     sid := reqb["sessionId"].(string)
 
     if _, ok := dm[sid]; !ok { // Initialize dm[sid] if it doesn't exist
-        var d Data
+        d := NewData(sid, reqb["websiteUrl"].(string))
         dm[sid] = &d
-        dm[sid].websiteUrl = reqb["websiteUrl"].(string)
-        dm[sid].sessionId = sid
-        dm[sid].copyAndPaste = make(map[string]bool)
         log.Printf("*** Created new Data struct with sessionId #%s ***\n\n", sid)
     }
 

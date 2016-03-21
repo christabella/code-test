@@ -3,6 +3,7 @@ var timer = null,
     width = String($(window).width()),
     height = String($(window).height());
 
+// set session id in the format of 123123-123123-123123123
 if (!Cookies.get('sessionId')) {
     var sessionId = "";
     for (i = 0; i < 21; i++) {

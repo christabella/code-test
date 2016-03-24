@@ -34,7 +34,7 @@ var dm = make(map[string]*Data) // map[sessionId]*Data
 func main() {
     /* Serve accepts incoming connections on the Listener localhost:8080, creating a
      * new service goroutine for each. The service goroutines read requests and then 
-     * call srv.Handler to reply to them.
+     * call srv.Handler to reply to them (`requestHandler` here).
      */
     http.HandleFunc("/", requestHandler) // add requestHandler to DefaultServeMux
     fmt.Println("Running HTTP server on localhost:8080")

@@ -13,7 +13,7 @@ type Data struct {
     resizeFrom         Dimension
     resizeTo           Dimension
     copyAndPaste       map[string]bool // map[fieldId]true
-    formCompletionTime float64 // seconds up to 1 decimal place
+    formCompletionTime float64 // In seconds, with 1 decimal place
 }
 
 func NewData(sid string, wurl string) Data {

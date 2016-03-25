@@ -2,10 +2,10 @@ Ravelin Code Test
 =================
 
 ## Usage
-**To run the HTTP server, cd into root directory and run `./httpserver`.**
+To run the HTTP server, cd into root directory and run `./httpserver`.
 
-**To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
-*(To run an additional sample client website, cd into `sample2` and run `./clientserver` from there as well.)***
+To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
+*(To run an additional sample client website, cd into `sample2` and run `./clientserver` from there as well.)*
 
 ## Summary
 An http server that accepts **POST requests** (JSON) from **muliple clients' websites** in parallel. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 

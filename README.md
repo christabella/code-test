@@ -1,13 +1,14 @@
 Ravelin Code Test
 =================
 
+## Usage
+**To run the HTTP server, cd into root directory and run `./httpserver`.**
+
+**To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
+*(To run an additional sample client website, cd into `sample2` and run `./clientserver` from there as well.)***
+
 ## Summary
 An http server that accepts **POST requests** (JSON) from **muliple clients' websites** in parallel. Each request forms part of a struct (for that particular visitor) that will be printed to the terminal when the struct is fully complete. 
-
-> **To run the HTTP server, cd into root directory and run `./httpserver`.**
->
-> **To serve a sample client website, cd into `sample_client_website` and run `./clientserver`.
-> *(To run an additional sample client website, cd into `sample2` and run `./clientserver` from there as well.)***
 
 A Data struct (defined below) is created for each session started from a client website, and the Data struct is completed upon form submission. A randomly-generated session ID is stored in a cookie on the client's browser for each client. **All Data structs will be stored in a hashmap** with the session ID as the key (map[sessionId]*Data `dm`). 
 
